@@ -1,0 +1,20 @@
+.footer {
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.3rem;
+  background-color: #364a54;
+  color: #fce9dd;
+
+  &__courses {
+    margin-top: 0.5rem;
+  }
+
+  &__icons {
+    margin-top: 0.5rem;
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: #eeace9;
+  }
+}

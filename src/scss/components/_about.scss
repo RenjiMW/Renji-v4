@@ -1,0 +1,21 @@
+.aboutMe {
+  text-align: justify;
+
+  &__heading {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+  }
+
+  &__myPhoto {
+    display: block;
+    height: 200px;
+    border: #9198e5 0.3rem solid;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 1.5rem;
+  }
+}

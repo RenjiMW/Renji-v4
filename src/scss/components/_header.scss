@@ -1,0 +1,15 @@
+// HEADER (screen 395x800px (with x height))
+.header {
+  margin-top: 25px;
+  padding: 2rem 2rem; // top
+  width: 100%;
+  text-align: justify;
+
+  &__main {
+    padding-bottom: 1rem;
+  }
+
+  &__additional {
+    font-size: 1.6rem;
+  }
+}

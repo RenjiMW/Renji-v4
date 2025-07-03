@@ -1,0 +1,76 @@
+@use "../base/mixins" as mix;
+
+.projects {
+  @include mix.respond-tablet {
+    display: flex;
+    justify-content: space-evenly;
+    max-height: 50px;
+  }
+
+  @include mix.respond-laptop {
+    position: relative;
+    min-height: 250px;
+    height: 100%;
+    width: 100%;
+    border: 2px dashed yellow;
+    overflow: visible;
+
+    justify-content: center;
+    position: relative;
+  }
+
+  &__item {
+    list-style: none;
+    padding: 1rem 0;
+
+    @include mix.respond-tablet {
+      flex: 1;
+    }
+
+    @include mix.respond-laptop {
+      width: 100%;
+      height: 100%;
+      flex: 0;
+      position: absolute;
+    }
+
+    &--1 {
+      @include mix.respond-laptop {
+        bottom: 0px;
+        left: -70px;
+      }
+    }
+
+    &--2 {
+      @include mix.respond-laptop {
+        bottom: -40px;
+        left: 90px;
+      }
+    }
+
+    &--3 {
+      @include mix.respond-laptop {
+        bottom: -100px;
+        left: -25px;
+      }
+    }
+    // &:hover {
+    // box
+    // }
+  }
+
+  &__img {
+    width: 80%;
+    aspect-ratio: 2/1;
+    border: rgb(25, 25, 239) 1px solid;
+    border-radius: 0.7rem;
+    box-shadow: 0.3rem 0.3rem 1rem rgb(22, 0, 63);
+
+    @include mix.respond-laptop {
+      width: 100%;
+    }
+    // @include mix.respond-tablet {
+    //   height: 100%;
+    // }
+  }
+}

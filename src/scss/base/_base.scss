@@ -1,0 +1,219 @@
+@use "mixins" as mix;
+@use "../abstracts/colors" as colors;
+$mainColor: #f6e294;
+$darkpurple: rgb(22, 0, 63);
+
+$font-primary: "Lato", sans-serif;
+$font-secondary: "Roboto", sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+body {
+  font-family: $font-primary;
+  font-size: 1rem;
+
+  background: colors.$light-background;
+  // background: linear-gradient(95deg, #e66465 -20%, #9198e5);
+  color: black;
+
+  width: 100%;
+  // this is needed to push the footer to the bootom of the page
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  // @include mix.respond-tablet {
+  //   width: 50%;
+  // }
+}
+
+.dark-mode {
+  background: #332e46;
+  background: linear-gradient(
+    -30deg,
+    rgba(51, 46, 70, 1) 0%,
+    rgba(44, 43, 51, 1) 100%
+  );
+  color: white;
+}
+
+.light-mode {
+  background: #8f99c5;
+  background: linear-gradient(
+    152deg,
+    rgba(143, 153, 197, 1) 0%,
+    rgba(218, 222, 239, 1) 100%
+  );
+  color: black;
+}
+
+// .fun-mode {
+//   background: #ffb7b7;
+//   background: linear-gradient(95deg, #e66465 -20%, #9198e5);
+//   color: black;
+// }
+
+// this is needed to push the footer to the bootom of the page
+main {
+  flex-grow: 1;
+  text-align: center;
+  padding: 2rem 2rem; // top
+  width: 100%;
+}
+
+section:not(:first-child) {
+  margin-top: 1.2rem;
+
+  @include mix.respond-tablet {
+    margin-top: 0;
+  }
+}
+
+.options {
+  width: 50px;
+  background-color: rgb(226, 210, 210);
+  border: 2px black solid;
+  border-radius: 0 0 8px 8px;
+  list-style: none;
+  font-size: 2rem;
+  position: fixed;
+  top: 0;
+  right: 5px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  transition: transform 0.3s ease-in-out;
+
+  &__item {
+    padding: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+
+    img {
+      height: 28px;
+    }
+  }
+
+  &.closed {
+    transform: translateY(-80%);
+  }
+
+  &.open {
+    transform: translateY(-5%);
+  }
+
+  .arrow-icon {
+    transition: transform 0.6s ease;
+  }
+
+  &.open .arrow-icon {
+    transform: rotate(180deg);
+  }
+}
+
+.themeMenu {
+  list-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  right: 60px;
+
+  #toggle-themeMenu {
+    margin-top: 3px;
+  }
+
+  img {
+    height: 32px;
+  }
+
+  li:not(:first-child) {
+    margin-left: 10px;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+    right: 6px;
+
+    background-color: rgb(226, 210, 210);
+    border: 2px black solid;
+    border-radius: 8px 0 0 8px;
+    border-right-style: none;
+
+    // img {
+    //   height: 32px;
+    // }
+
+    &.closed {
+      opacity: 0;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.gridContainer {
+  @include mix.respond-laptop {
+    display: grid;
+    grid-template-areas:
+      "projectsSCSS projectsJS info"
+      "projectsREACT projectsMY info";
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+}
+
+.projectsSCSS {
+  @include mix.respond-laptop {
+    grid-area: projectsSCSS;
+  }
+}
+
+.projectsJS {
+  @include mix.respond-laptop {
+    grid-area: projectsJS;
+  }
+}
+
+.projectsREACT {
+  @include mix.respond-laptop {
+    grid-area: projectsREACT;
+  }
+}
+
+.projectsMY {
+  @include mix.respond-laptop {
+    grid-area: projectsMY;
+  }
+}
+
+.info {
+  @include mix.respond-laptop {
+    grid-area: info;
+    max-width: 400px;
+    border-radius: 0.7rem;
+    border: rgb(25, 25, 239) 1px solid;
+    background-color: $mainColor;
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #ccc;
+  }
+}

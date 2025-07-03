@@ -1,0 +1,54 @@
+.accordion-header {
+  background-color: rgb(226, 210, 210);
+  padding: 4px;
+  margin: auto;
+  width: 95%;
+  border: black solid 2px;
+  font-size: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+
+  & span {
+    grid-column: 2 / 3;
+  }
+
+  & img {
+    margin: auto 0;
+
+    @media screen and (min-width: 1024px) {
+      opacity: 0;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-weight: 700;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+img.arrow-icon {
+  width: 40px;
+  height: 10px;
+  rotate: 180deg;
+  object-fit: cover;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s;
+  padding: 0 1rem;
+
+  @media screen and (min-width: 1024px) {
+    max-height: min-content; /* wysokość docelowa */
+    overflow: visible;
+    transition: none;
+    padding: 1rem 1.3rem;
+  }
+}
+
+.accordion-content.open {
+  max-height: min-content; /* wysokość docelowa */
+  padding: 1rem 1.3rem;
+}
