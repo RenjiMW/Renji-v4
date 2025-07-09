@@ -26,7 +26,7 @@ const translations = {
     email: "e-mail: wielgosz.mac@gmail.com",
     footerThanks: "Thank you for visting my website!",
     courses: `If you are also learning programming, I encourage you to take Jonnas Schmetmann's <a href="https://codingheroes.io/" class="footer__link">courses</a> `,
-    icons: "Icons used",
+    icons: `<p class="footer__text footer__icons" data-i18n="icons">The icons used are mainly from <a href="https://fontawesome.com/" class="footer__link" target="_blank" rel="noopener noreferrer">Font Awesome</a> and are licensed free of charge.</p>`,
   },
   pl: {
     title: "Cześć 😉, jestem Maciej — przyszły front-end developer",
@@ -53,7 +53,7 @@ const translations = {
     footerThanks: "Dziękuję za odwiedzenie mojej strony!",
     courses:
       'Jeśli też uczysz się programowania, zachęcam Cię do skorzystania z kursów <a href="https://codingheroes.io/" class="footer__link">Jonnasa Schmetmanna</a>',
-    icons: "Użyte ikony",
+    icons: `<p class="footer__text footer__icons" data-i18n="icons">Użyte ikony pochodzą głównie z <a href="https://fontawesome.com/" class="footer__link" target="_blank" rel="noopener noreferrer">Font Awesome</a> i są na darmowej licencji.</p>`,
   },
 };
 

@@ -7,6 +7,7 @@
       "projectsSCSS projectsJS"
       "projectsREACT projectsMY"
       "info info";
+    grid-template-columns: 50% 50%;
     gap: 1rem;
     justify-items: center;
     align-items: center;
@@ -14,9 +15,11 @@
   }
 
   @include mix.respond-largeDesktop {
+    width: 95%;
+    margin: auto;
     display: grid; // FIXME: dubluje się tabletem
-    grid-template-columns: 0.9fr 0.9fr 1.2fr;
-    grid-template-rows: 300px min-content;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 330px 330px;
     grid-template-areas:
       "projectsSCSS projectsJS info"
       "projectsREACT projectsMY info";
@@ -34,6 +37,7 @@
 
   @include mix.respond-tablet {
     height: 280px;
+    width: 330px;
   }
 }
 
@@ -42,6 +46,7 @@
 
   @include mix.respond-tablet {
     height: 280px;
+    width: 330px;
   }
 }
 
@@ -50,6 +55,7 @@
 
   @include mix.respond-tablet {
     height: 280px;
+    width: 330px;
   }
 }
 
@@ -58,6 +64,7 @@
 
   @include mix.respond-tablet {
     height: 280px;
+    width: 330px;
   }
 
   & a img {
@@ -96,7 +103,7 @@
   }
 
   @include mix.respond-largeDesktop {
-    max-width: 80%;
+    max-width: none;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;

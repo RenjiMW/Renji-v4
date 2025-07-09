@@ -108,6 +108,26 @@
     align-items: center;
     & img {
       height: 36px;
+
+      &:hover {
+        border: white 2px solid;
+        border-radius: 50%;
+        scale: 1.6;
+      }
+    }
+  }
+}
+
+#toggle-lang {
+  @include mix.respond-laptop {
+    & img {
+      height: 36px;
+
+      &:hover {
+        border: white 2px solid;
+        border-radius: 50%;
+        scale: 1.5;
+      }
     }
   }
 }

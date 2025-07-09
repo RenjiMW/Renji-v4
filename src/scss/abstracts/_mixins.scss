@@ -4,6 +4,8 @@
 // iPads, Tablets – 481px — 768px.
 // Small screens, laptops – 769px — 1024px.
 // Desktops, large screens – 1025px — 1200px.
+
+// bootstrap brakepoints
 // X-Small	None	<576px
 // Small	sm	≥576px
 // Medium	md	≥768px
@@ -42,7 +44,7 @@
 }
 
 @mixin respond-largeDesktop {
-  @media (min-width: 1400px) {
+  @media (min-width: 1600px) {
     @content;
   }
 }

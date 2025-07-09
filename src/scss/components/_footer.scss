@@ -1,9 +1,17 @@
+@use "../abstracts/mixins" as mix;
+
 .footer {
   padding: 1rem;
   padding-bottom: 1.5rem;
   font-size: 1.3rem;
   background-color: #364a54;
   color: #fce9dd;
+
+  &__container {
+    @include mix.respond-laptop {
+      margin-left: 2.5rem;
+    }
+  }
 
   &__courses {
     margin-top: 0.5rem;

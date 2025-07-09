@@ -54,8 +54,16 @@
     border-radius: 0.7rem;
     box-shadow: 0.3rem 0.3rem 1rem rgb(22, 0, 63);
 
+    @include mix.respond-tablet {
+      width: 70%;
+    }
+
+    @include mix.respond-laptop {
+      width: 80%;
+    }
+
     @include mix.respond-desktop {
-      width: 100%;
+      width: 90%;
     }
   }
 }

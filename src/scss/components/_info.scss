@@ -18,4 +18,8 @@
   @include mix.respond-desktop {
     margin-top: 5.5rem;
   }
+
+  @include mix.respond-largeDesktop {
+    margin-top: 0;
+  }
 }
