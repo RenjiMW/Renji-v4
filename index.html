@@ -22,35 +22,39 @@
 
 <body>
 
-  <menu class="options closed">
-    <!-- ====== themeMenu ====== -->
-    <li class="options__item themeMenu">
-      <img src="src/img/sun-moon.svg" alt="Arrow icon" id="toggle-themeMenu" />
-      <ul class="themeMenu__list closed">
-        <li><img src="src/img/moon.svg" alt="Arrow icon" id="darkModeBtn" /></li>
-        <li><img src="src/img/sunset.svg" alt="Arrow icon" id="funModeBtn" /></li>
-        <li><img src="src/img/sun.svg" alt="Arrow icon" id="lightModeBtn" /></li>
-      </ul>
-    </li>
+  <div class="upperContentContainer">
+    <menu class="options closed">
 
-    <li class="options__item" id="toggle-lang">
-      <!-- ================================= FLAGS ================================= -->
-      <img src="./src/img/EN_flag.png" alt="English flag icon" id="EN-icon" class="hidden" />
-      <img src="./src/img/PL_flag.png" alt="Polish flag icon" id="PL-icon" class="hidden" />
-      <!-- ================================= FLAGS ================================= -->
-    </li>
-    <li class="options__item" id="close-accordions"><img src="src/img/fold.svg" alt="Fold sections icon" /></li>
-    <li class="options__item" id="toggle-menu">
-      <img src="src/img/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
-    </li>
-  </menu>
+      <!-- ====== themeMenu ====== -->
+      <li class="options__item" id="toggle-theme">
+        <img src="src/img/icons/moon.svg" alt="Arrow icon" id="darkModeBtn" class="hidden" />
+        <img src="src/img/icons/sun.svg" alt="Arrow icon" id="lightModeBtn" class="hidden" />
+      </li>
+      <!-- ====== themeMenu ====== -->
 
-  <header class="header">
-    <h1 class="header__main" data-i18n="title">Hi 😉, I'm Maciej — a future front-end developer</h1>
-    <p class="header__additional" data-i18n="description">On this website, you can find the projects that helped me
-      learn and a bit more about me.</p>
-  </header>
+      <li class="options__item" id="toggle-lang">
+        <!-- ================================= FLAGS ================================= -->
+        <img src="./src/img/icons/EN_flag.png" alt="English flag icon" id="EN-icon" class="hidden" />
+        <img src="./src/img/icons/PL_flag.png" alt="Polish flag icon" id="PL-icon" class="hidden" />
+        <!-- ================================= FLAGS ================================= -->
+      </li>
 
+      <!-- ====== closeAccordions ====== -->
+      <li class="options__item options__item--inactive" id="close-accordions"><img src="src/img/icons/fold.svg"
+          alt="Fold sections icon" /></li>
+      <!-- ====== closeAccordions ====== -->
+
+      <li class="options__item" id="toggle-menu">
+        <img src="src/img/icons/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
+      </li>
+    </menu>
+
+    <header class="header">
+      <h1 class="header__main" data-i18n="title">Hi 😉, I'm Maciej — a future front-end developer</h1>
+      <p class="header__additional" data-i18n="description">On this website, you can find the projects that helped me
+        learn and a bit more about me.</p>
+    </header>
+  </div>
 
   <main class="gridContainer">
     <!-- ///////////////////////// ===== PROJECTS ===== /////////////////////////-->
@@ -61,17 +65,17 @@
       <!------------------- BUTTON --------------------->
       <button class="accordion-header">
         <span data-i18n="buttonSASS">Projects for learning SASS</span>
-        <img src="src/img/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
+        <img src="src/img/icons/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
       </button>
 
       <!-------------- SCSS project content -------------->
       <ul class="projects accordion-content">
         <li class="projects__item projects__item--1"><a href="https://natours-mw.netlify.app/" target="_blank"><img
-              class="projects__img" src="src/img/natours.png" alt="Link to natours project"></a></li>
+              class="projects__img" src="src/img/projects/natours.png" alt="Link to natours project"></a></li>
         <li class="projects__item projects__item--2"><a href="https://trillo-mw.netlify.app/" target="_blank"><img
-              class="projects__img" src="src/img/trillo.png" alt="Link to trillo project"></a></li>
+              class="projects__img" src="src/img/projects/trillo.png" alt="Link to trillo project"></a></li>
         <li class="projects__item projects__item--3"><a href="https://nexter-mw.netlify.app/" target="_blank"><img
-              class="projects__img" src="src/img/nexter.png" alt="Link to nexter project"></a></li>
+              class="projects__img" src="src/img/projects/nexter.png" alt="Link to nexter project"></a></li>
       </ul>
     </section>
 
@@ -81,18 +85,18 @@
       <!------------------- BUTTON --------------------->
       <button class="accordion-header">
         <span data-i18n="buttonJS">Projects for learning JS</span>
-        <img src="src/img/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
+        <img src="src/img/icons/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
       </button>
 
       <!-------------- JS projects content -------------->
       <ul class="projects accordion-content">
         <li class="projects__item projects__item--1"><a href="https://pig-game-mw.netlify.app/" target="_blank"><img
-              class="projects__img" src="src/img/pig-game.png" alt="Link to pig-game project"></a></li>
+              class="projects__img" src="src/img/projects/pig-game.png" alt="Link to pig-game project"></a></li>
         <li class="projects__item projects__item--2"><a href="https://mapty-mw.netlify.app/" target="_blank"><img
-              class="projects__img" src="src/img/mapty.png" alt="Link to mapty project"></a>
+              class="projects__img" src="src/img/projects/mapty.png" alt="Link to mapty project"></a>
         </li>
         <li class="projects__item projects__item--3"><a href="https://forkify-mw.netlify.app/" target="_blank"><img
-              class="projects__img" src="src/img/forkify.png" alt="Link to forkify project"></a></li>
+              class="projects__img" src="src/img/projects/forkify.png" alt="Link to forkify project"></a></li>
       </ul>
     </section>
 
@@ -102,21 +106,21 @@
       <!------------------- BUTTON --------------------->
       <button class="accordion-header">
         <span data-i18n="buttonReact">Projects for learning React</span>
-        <img src="src/img/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
+        <img src="src/img/icons/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
       </button>
 
       <!-------------- React projects content -------------->
       <ul class="projects accordion-content">
         <li class="projects__item projects__item--1"><a href="https://renjimw.github.io/usePopcorn/"
-            target="_blank"><img class="projects__img" src="src/img/usepopcorn.png"
+            target="_blank"><img class="projects__img" src="src/img/projects/usepopcorn.png"
               alt="Link to usePopcorn project"></a>
         </li>
         <li class="projects__item projects__item--2"><a href="https://renjimw.github.io/eat-n-split/"
-            target="_blank"><img class="projects__img" src="src/img/eat-n-split.png"
+            target="_blank"><img class="projects__img" src="src/img/projects/eat-n-split.png"
               alt="Link to eat-n-split project"></a>
         </li>
         <li class="projects__item projects__item--3"><a href="https://renjimw.github.io/counter/" target="_blank"><img
-              class="projects__img" src="src/img/counter.png" alt="Link to counter project"></a></li>
+              class="projects__img" src="src/img/projects/counter.png" alt="Link to counter project"></a></li>
       </ul>
     </section>
 
@@ -126,13 +130,16 @@
       <!------------------- BUTTON --------------------->
       <button class="accordion-header">
         <span data-i18n="buttonMyProjects">My projects</span>
-        <img src="src/img/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
+        <img src="src/img/icons/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
       </button>
 
       <!-------------- My projects content-------------->
       <ul class="projects accordion-content">
         <li class="projects__item"><a href="https://renjimw.github.io/WatahaRCZG/" target="_blank"><img
-              class="projects__img" src="src/img/wataha.png" alt="Link to wataha project"></a></li>
+              class="projects__img" src="src/img/projects/wataha.png" alt="Link to wataha project"></a></li>
+
+        <li class="projects__item"><a href="https://secure-login-full.onrender.com/login" target="_blank"><img
+              class="projects__img" src="src/img/projects/secure-login.png" alt="Link to secure-login project"></a></li>
       </ul>
     </section>
 
@@ -140,37 +147,43 @@
 
     <div class="info">
       <!-- ============= ----- About me ----- ============= -->
-      <section>
+      <section class="info__section info__section--aboutMe">
         <button class="accordion-header">
           <span data-i18n="aboutMe">About me</span>
-          <img src="src/img/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
+          <img src="src/img/icons/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
         </button>
 
         <div class="aboutMe accordion-content">
           <h3 class="aboutMe__heading" data-i18n="aboutMeHeading">Nice to meet you! 😁</h3>
-          <p class="aboutMe__text" data-i18n="aboutMeText1">
-            I'm still a beginner in front-end development. I started learning in 2020,
-            and since then I've been taking small but consistent steps forward almost
-            every day. Continuous improvement has always been a part of me. My goal is
-            to become a full-stack developer and do all kinds of magic with code – but hey,
-            one step at a time!
-          </p>
-          <img class="aboutMe__myPhoto" src="./src/img/renji.png" alt="My photo">
-          <p class="aboutMe__text" data-i18n="aboutMeText2">
-            As a person, I'm calm and open-minded. I'm rather
-            quiet, but I truly enjoy working in a good team and being around positive people.
-          </p>
-          <p class="aboutMe__text" data-i18n="aboutMeText3">
-            Outside of coding, my hobbies include rugby, gym workouts… and video games 🎮
-          <p>
+          <div class="aboutMe__content">
+            <div class="aboutMe__descriptionMain">
+              <p class="aboutMe__text" data-i18n="aboutMeText1">
+                I'm still a beginner in front-end development. I started learning in 2020,
+                and since then I've been taking small but consistent steps forward almost
+                every day. Continuous improvement has always been a part of me. My goal is
+                to become a full-stack developer and do all kinds of magic with code – but hey,
+                one step at a time!
+              </p>
+            </div>
+            <img class="aboutMe__myPhoto" src="./src/img/photos/renji.png" alt="My photo">
+            <div class="aboutMe__descriptionSecondary">
+              <p class="aboutMe__text" data-i18n="aboutMeText2">
+                As a person, I'm calm and open-minded. I'm rather
+                quiet, but I truly enjoy working in a good team and being around positive people.
+              </p>
+              <p class="aboutMe__text" data-i18n="aboutMeText3">
+                Outside of coding, my hobbies include rugby, gym workouts… and video games 🎮
+              <p>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- ============= ----- Skills ----- ============= -->
-      <section>
+      <section class="info__section info__section--skills">
         <button class="accordion-header">
           <span data-i18n="skills">Skills</span>
-          <img src="src/img/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
+          <img src="src/img/icons/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
         </button>
 
         <div class="skills accordion-content">
@@ -190,10 +203,10 @@
       </section>
 
       <!-- ============= ----- Contact ----- ============= -->
-      <section>
+      <section class="info__section info__section--contact">
         <button class="accordion-header">
           <span data-i18n="contact">Contact info</span>
-          <img src="src/img/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
+          <img src="src/img/icons/Arrow.svg" alt="Arrow icon" class="arrow-icon" />
         </button>
 
         <div class="contact accordion-content">

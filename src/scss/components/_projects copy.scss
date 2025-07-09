@@ -1,18 +1,25 @@
 @use "../abstracts/mixins" as mix;
 
 .projects {
-  @include mix.respond-smallTablet {
-    display: flex;
-    justify-content: space-evenly;
-  }
-
+  // over 768px
   @include mix.respond-tablet {
-    position: relative;
+    display: flex; // nadaje cechę flex
+    justify-content: space-evenly; // powoduje równe rozłożenie elementów
+    // TO wydaje się być nie potrzebne
+    // max-height: 50px; // nie pozwala przekroczyć maxwysokości 50px
   }
 
+  // over 1200px
   @include mix.respond-desktop {
     position: relative;
     min-height: 250px;
+    height: 100%;
+    width: 100%;
+    border: 2px dashed yellow;
+    overflow: visible;
+
+    justify-content: center;
+    position: relative;
   }
 
   &__item {
@@ -20,8 +27,13 @@
     padding: 1rem 0;
 
     @include mix.respond-tablet {
+      flex: 1;
+    }
+
+    @include mix.respond-tablet {
       width: 100%;
       height: 100%;
+      flex: 0;
       position: absolute;
     }
 
@@ -45,6 +57,9 @@
         left: -25px;
       }
     }
+    // &:hover {
+    // box
+    // }
   }
 
   &__img {
@@ -57,18 +72,8 @@
     @include mix.respond-desktop {
       width: 100%;
     }
-  }
-}
-
-.preview {
-  @include mix.respond-smallTablet {
-    transform: scale(1.4);
-    z-index: 10;
-    position: relative;
-    transition: transform 0.3s ease;
-  }
-
-  @include mix.respond-tablet {
-    transform: scale(1.2);
+    // @include mix.respond-tablet {
+    //   height: 100%;
+    // }
   }
 }

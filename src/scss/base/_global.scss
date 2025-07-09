@@ -1,0 +1,56 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/colors" as colors;
+$mainColor: #f6e294;
+$darkpurple: rgb(22, 0, 63);
+
+$font-primary: "Lato", sans-serif;
+$font-secondary: "Roboto", sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+body {
+  font-family: $font-primary;
+  font-size: 1rem;
+
+  background: colors.$light-background;
+  color: black;
+
+  width: 100%;
+  // this is needed to push the footer to the bootom of the page
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+}
+
+// this is needed to push the footer to the bootom of the page
+main {
+  flex-grow: 1;
+  text-align: center;
+  padding: 2rem 2rem; // top
+  width: 100%;
+  // max-width: fit-content;
+}
+
+section {
+  margin-top: 1.2rem;
+
+  @include mix.respond-tablet {
+    margin-top: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}

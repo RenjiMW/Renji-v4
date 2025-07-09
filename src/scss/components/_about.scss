@@ -1,3 +1,5 @@
+@use "../abstracts/mixins" as mix;
+
 .aboutMe {
   text-align: justify;
 
@@ -6,16 +8,77 @@
     margin-bottom: 0.5rem;
   }
 
+  &__content {
+    @include mix.respond-smallTablet {
+      display: grid;
+      grid-template-areas:
+        "photo text-1"
+        "photo text-2";
+    }
+
+    @media (min-width: 1400px) {
+      grid-template-areas:
+        "photo text-1"
+        "text-2 text-2";
+    }
+  }
+
   &__text {
     font-size: 1.5rem;
   }
 
+  &__descriptionMain {
+    grid-area: text-1;
+
+    @include mix.respond-tablet {
+      padding-top: 5%;
+    }
+
+    @include mix.respond-laptop {
+      padding-top: 0;
+    }
+
+    @include mix.respond-desktop {
+      padding-top: 5%;
+    }
+
+    @include mix.respond-largeDesktop {
+      padding-top: 0;
+    }
+
+    @media (min-width: 1600px) {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__descriptionSecondary {
+    grid-area: text-2;
+    margin-top: 1.5rem;
+    @media (min-width: 1400px) {
+      margin-top: 0.5rem;
+    }
+  }
+
   &__myPhoto {
+    grid-area: photo;
     display: block;
     height: 200px;
     border: #9198e5 0.3rem solid;
     border-radius: 50%;
     margin: auto;
     margin-top: 1.5rem;
+
+    @include mix.respond-smallTablet {
+      margin-right: 1.5rem;
+    }
+
+    @include mix.respond-largeDesktop {
+      float: left;
+      margin: 1.5rem;
+    }
+
+    @media (min-width: 1400px) {
+      margin-bottom: 0;
+    }
   }
 }

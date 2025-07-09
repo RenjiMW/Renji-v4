@@ -1,0 +1,18 @@
+@use "../abstracts/colors" as colors;
+@use "../abstracts/mixins" as mix;
+
+.dark-mode {
+  background: colors.$dark-background;
+  color: white;
+
+  @include mix.respond-tablet {
+    button.accordion-header {
+      color: white;
+    }
+  }
+}
+
+.light-mode {
+  background: colors.$light-background;
+  color: black;
+}

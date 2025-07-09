@@ -1,0 +1,107 @@
+@use "../abstracts/mixins" as mix;
+
+.gridContainer {
+  @include mix.respond-tablet {
+    display: grid;
+    grid-template-areas:
+      "projectsSCSS projectsJS"
+      "projectsREACT projectsMY"
+      "info info";
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  @include mix.respond-largeDesktop {
+    display: grid; // FIXME: dubluje się tabletem
+    grid-template-columns: 0.9fr 0.9fr 1.2fr;
+    grid-template-rows: 300px min-content;
+    grid-template-areas:
+      "projectsSCSS projectsJS info"
+      "projectsREACT projectsMY info";
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+
+.projectsSCSS {
+  margin-top: 0;
+  grid-area: projectsSCSS;
+
+  @include mix.respond-tablet {
+    height: 280px;
+  }
+}
+
+.projectsJS {
+  grid-area: projectsJS;
+
+  @include mix.respond-tablet {
+    height: 280px;
+  }
+}
+
+.projectsREACT {
+  grid-area: projectsREACT;
+
+  @include mix.respond-tablet {
+    height: 280px;
+  }
+}
+
+.projectsMY {
+  grid-area: projectsMY;
+
+  @include mix.respond-tablet {
+    height: 280px;
+  }
+
+  & a img {
+    @include mix.respond-smallTablet {
+      max-width: 70%;
+    }
+
+    @include mix.respond-tablet {
+      max-width: 100%;
+    }
+  }
+}
+
+.info {
+  grid-area: info;
+  gap: 1.5rem;
+
+  @include mix.respond-tablet {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "description description"
+      "skills contact";
+  }
+
+  @include mix.respond-laptop {
+    max-width: 95%;
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "description skills"
+      "description contact";
+  }
+
+  @include mix.respond-largeDesktop {
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "description description"
+      "skills contact";
+  }
+}

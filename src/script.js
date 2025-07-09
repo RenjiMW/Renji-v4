@@ -1,3 +1,5 @@
+"use strict";
+
 const translations = {
   en: {
     title: "Hi 😉, I'm Maciej — a future front-end developer",
@@ -55,75 +57,106 @@ const translations = {
   },
 };
 
-// /////////////// Accordeon functionality
-const headers = document.querySelectorAll(".accordion-header");
-
-headers.forEach((header) => {
-  header.addEventListener("click", () => {
-    const content = header.nextElementSibling;
-    content.classList.toggle("open");
-  });
-});
-
-// /////////////// MENU FUNCTIONS
+// Menu main elements
 const menu = document.querySelector(".options");
 const toggleBtn = document.getElementById("toggle-menu");
+// Menu buttons
+const themeBtn = document.getElementById("toggle-theme");
 const langBtn = document.getElementById("toggle-lang");
 const closeBtn = document.getElementById("close-accordions");
 
-const themeMenuBtn = document.getElementById("toggle-themeMenu");
-const themeMenu = document.querySelector(".themeMenu__list");
-const darkModeBtn = document.getElementById("darkModeBtn");
-const funModeBtn = document.getElementById("funModeBtn");
-const lightModeBtn = document.getElementById("lightModeBtn");
+// Accordion button-headers
+const headers = document.querySelectorAll(".accordion-header");
 
 // Menu open/close
 toggleBtn.addEventListener("click", () => {
   menu.classList.toggle("open");
   menu.classList.toggle("closed");
-  themeMenu.className = "themeMenu__list closed";
 });
 
-// // themeMenu open/close
-themeMenuBtn.addEventListener("click", () => {
-  themeMenu.classList.toggle("open");
-  themeMenu.classList.toggle("closed");
+// Make the close button active when an accordion element is opened
+function updateCloseButtonState() {
+  const allContents = document.querySelectorAll(".accordion-content.open");
+  closeBtn.classList.toggle("options__item--active", allContents.length > 0);
+}
+
+// Closing menu when clicking outside
+document.body.addEventListener("click", (event) => {
+  if (
+    !menu.contains(event.target) &&
+    event.target !== toggleBtn &&
+    event.target !== closeBtn &&
+    !Array.from(headers).some((header) => header.contains(event.target))
+  ) {
+    menu.classList.remove("open");
+    menu.classList.add("closed");
+  }
 });
 
-// Theme change
-function deleteBodyClass() {
-  document.body.className = "";
+// /////////////// Accordion functionality
+headers.forEach((header) => {
+  header.addEventListener("click", () => {
+    const content = header.nextElementSibling;
+    content.classList.toggle("open");
+    updateCloseButtonState();
+  });
+});
+
+// ///////////////// PAGE CONTENT CLOSE
+closeBtn.addEventListener("click", () => {
+  const allContents = document.querySelectorAll(".accordion-content.open");
+  allContents.forEach((content) => {
+    content.classList.remove("open");
+  });
+  updateCloseButtonState();
+});
+
+////////////////////////////////////////
+////////// === THEME MODE === //////////
+const moonIcon = document.querySelector("#darkModeBtn");
+const sunIcon = document.querySelector("#lightModeBtn");
+
+// Check user's preferred color scheme
+const prefersDarkMode = window.matchMedia(
+  "(prefers-color-scheme: dark)"
+).matches;
+const initialTheme = prefersDarkMode ? "dark-mode" : "light-mode";
+
+// Set theme icon based on user's preference
+function setThemeIcon(newThemeIcon) {
+  if (newThemeIcon === "dark-mode") {
+    moonIcon.classList.remove("hidden");
+    sunIcon.classList.add("hidden");
+  }
+
+  if (newThemeIcon === "light-mode") {
+    sunIcon.classList.remove("hidden");
+    moonIcon.classList.add("hidden");
+  }
 }
 
 // Sets the theme passed as an argument
-const handleMode = function (mode) {
+const setBackgroundTheme = function (mode) {
   if (document.body.classList.length > 0) {
-    deleteBodyClass();
+    document.body.className = "";
     document.body.classList.toggle(mode);
   } else {
     document.body.classList.toggle(mode);
   }
 };
 
-// Sets dark-mode
-darkModeBtn.addEventListener("click", function () {
-  handleMode("dark-mode");
-});
+const initialThemeState = function () {
+  setThemeIcon(initialTheme);
+  setBackgroundTheme(initialTheme);
+};
 
-// Sets light-mode
-lightModeBtn.addEventListener("click", function () {
-  handleMode("light-mode");
-});
+document.addEventListener("DOMContentLoaded", initialThemeState());
 
-// Sets fun-mode
-funModeBtn.addEventListener("click", deleteBodyClass);
-
-// Page content close
-closeBtn.addEventListener("click", () => {
-  const allContents = document.querySelectorAll(".accordion-content.open");
-  allContents.forEach((content) => {
-    content.classList.remove("open");
-  });
+themeBtn.addEventListener("click", () => {
+  const bodyClass = document.body.className;
+  const newBodyClass = bodyClass === "dark-mode" ? "light-mode" : "dark-mode";
+  setBackgroundTheme(newBodyClass);
+  setThemeIcon(newBodyClass);
 });
 
 // ///////////////// TRANSLATION
@@ -165,3 +198,111 @@ langBtn.addEventListener("click", () => {
   updateLanguage(newLang);
   changeFlag();
 });
+
+// function rotateAccordionArrows() {
+//   headers.forEach((header) => {
+//     const img = header.querySelector("img");
+//     if (img) {
+//       header.addEventListener("click", () => {
+//         img.classList.toggle("rotated");
+//         console.log(`Image in header ${header.textContent} rotated`);
+//       });
+//     }
+//   });
+// }
+
+// rotateAccordionArrows();
+
+// napisz funkcję, która będzie sprawiać, że elmenty span w accortion_header będą dostawać klasę "whiteColor" po zmianie theme na dark-mode
+
+headers.forEach((header) => {
+  const spans = header.querySelectorAll("span");
+  spans.forEach((span) => {
+    if (document.body.classList.contains("dark-mode")) {
+      span.classList.add("whiteColor");
+    } else {
+      span.classList.remove("whiteColor");
+    }
+  });
+});
+
+// const projectLinks = document.querySelectorAll(".projects a");
+// let activePreview = null;
+
+// projectLinks.forEach((link) => {
+//   const img = link.querySelector("img");
+
+//   link.addEventListener("click", (e) => {
+//     if (activePreview === link) {
+//       return;
+//     }
+
+//     e.preventDefault();
+
+//     if (activePreview) {
+//       activePreview.querySelector("img").classList.remove("preview");
+//     }
+
+//     img.classList.add("preview");
+//     activePreview = link;
+//   });
+// });
+
+// document.addEventListener("click", (e) => {
+//   const clickedInside = [...projectLinks].some((link) =>
+//     link.contains(e.target)
+//   );
+//   if (!clickedInside && activePreview) {
+//     activePreview.querySelector("img").classList.remove("preview");
+//     activePreview = null;
+//   }
+// });
+
+const projectLinks = document.querySelectorAll(".projects a");
+let activePreview = null;
+
+const isTouchDevice =
+  window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+
+if (isTouchDevice) {
+  projectLinks.forEach((link) => {
+    const img = link.querySelector("img");
+
+    link.addEventListener("click", (e) => {
+      if (activePreview === link) {
+        return;
+      }
+
+      e.preventDefault();
+
+      if (activePreview) {
+        activePreview.querySelector("img").classList.remove("preview");
+      }
+
+      img.classList.add("preview");
+      activePreview = link;
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    const clickedInside = [...projectLinks].some((link) =>
+      link.contains(e.target)
+    );
+    if (!clickedInside && activePreview) {
+      activePreview.querySelector("img").classList.remove("preview");
+      activePreview = null;
+    }
+  });
+} else {
+  projectLinks.forEach((link) => {
+    const img = link.querySelector("img");
+
+    link.addEventListener("mouseenter", () => {
+      img.classList.add("preview");
+    });
+
+    link.addEventListener("mouseleave", () => {
+      img.classList.remove("preview");
+    });
+  });
+}

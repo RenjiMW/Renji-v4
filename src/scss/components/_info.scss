@@ -1,8 +1,21 @@
-.info {
-  padding: 2rem 2rem; // top
-  width: 100%;
+@use "../abstracts/mixins" as mix;
 
-  &__container {
-    padding: 1rem;
+.info {
+  &__section {
+    &--aboutMe {
+      grid-area: description;
+    }
+
+    &--skills {
+      grid-area: skills;
+    }
+
+    &--contact {
+      grid-area: "skills contact";
+    }
+  }
+
+  @include mix.respond-desktop {
+    margin-top: 5.5rem;
   }
 }

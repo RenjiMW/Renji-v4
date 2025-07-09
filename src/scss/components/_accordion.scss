@@ -1,9 +1,12 @@
+@use "../abstracts/mixins" as mix;
+
 .accordion-header {
   background-color: rgb(226, 210, 210);
   padding: 4px;
   margin: auto;
   width: 95%;
   border: black solid 2px;
+  border-radius: 7px;
   font-size: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
@@ -15,12 +18,12 @@
   & img {
     margin: auto 0;
 
-    @media screen and (min-width: 1024px) {
+    @include mix.respond-tablet {
       opacity: 0;
     }
   }
 
-  @media screen and (min-width: 1024px) {
+  @include mix.respond-tablet {
     font-weight: 700;
     background-color: transparent;
     border: none;
@@ -32,7 +35,12 @@ img.arrow-icon {
   height: 10px;
   rotate: 180deg;
   object-fit: cover;
+  // transition: rotate 0.3s ease-in-out; // animacja przeniesiona tutaj
 }
+
+// img.arrow-icon.rotated {
+//   rotate: 0deg;
+// }
 
 .accordion-content {
   max-height: 0;
@@ -40,7 +48,7 @@ img.arrow-icon {
   transition: max-height 0.3s ease-out, padding 0.3s;
   padding: 0 1rem;
 
-  @media screen and (min-width: 1024px) {
+  @include mix.respond-tablet {
     max-height: min-content; /* wysokość docelowa */
     overflow: visible;
     transition: none;

@@ -1,9 +1,14 @@
-// HEADER (screen 395x800px (with x height))
+@use "../abstracts/mixins" as mix;
+
 .header {
   margin-top: 25px;
   padding: 2rem 2rem; // top
   width: 100%;
   text-align: justify;
+
+  @include mix.respond-laptop {
+    max-width: fit-content;
+  }
 
   &__main {
     padding-bottom: 1rem;

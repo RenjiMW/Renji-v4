@@ -1,0 +1,11 @@
+@use "../abstracts/mixins" as mix;
+
+.upperContentContainer {
+  @include mix.respond-laptop {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
