@@ -1,4 +1,5 @@
 "use strict";
+import "./scss/main.scss";
 
 const translations = {
   en: {
