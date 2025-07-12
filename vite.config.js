@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/Renji-v4/",
+  base: "/renji-v4/",
 });
