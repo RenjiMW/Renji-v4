@@ -1,6 +1,5 @@
 "use strict";
 import "./scss/main.scss";
-import "./icon-font/icon-font.css";
 
 const translations = {
   en: {
